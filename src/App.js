@@ -16,26 +16,14 @@ function Counter() {
   const today = new Date();
   today.setDate(today.getDate() + count);
 
-  // function decrementStep() {
-  //   if (step > 1) setStep((s) => s - 1);
-  // }
-
   function changeRange(event) {
     setStep(event.target.value);
   }
-
-  // function incrementStep() {
-  //   setStep((s) => s + 1);
-  // }
 
   function handleReset() {
     setStep(1);
     setCount(0);
   }
-
-  // function handleCountChange(event) {
-  //   setStep(Number(event.target.value));
-  // }
 
   function handleKeyUp(event) {
     setCount(Number(event.target.value));
@@ -50,18 +38,10 @@ function Counter() {
         onChange={changeRange}
         value={step}
       />
-      {/* <button onClick={decrementStep}>-</button> */}
       {step}
-      {/* <button onClick={incrementStep}>+</button> */}
       <br />
       <button onClick={() => setCount((c) => c - Number(step))}>-</button>
-      {/* Count: {count} */}
-      <input
-        type="text"
-        value={count}
-        // onChange={handleCountChange}
-        onInput={handleKeyUp}
-      />
+      <input type="text" value={count} onChange={handleKeyUp} />
       <button onClick={() => setCount((c) => c + Number(step))}>+</button>
       <br />
       <p>
