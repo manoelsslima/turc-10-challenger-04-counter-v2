@@ -20,13 +20,10 @@ function Counter() {
     setStep(event.target.value);
   }
 
+  /* we usually use separated function when there are two or more states to handle */
   function handleReset() {
     setStep(1);
     setCount(0);
-  }
-
-  function handleKeyUp(event) {
-    setCount(Number(event.target.value));
   }
 
   return (
@@ -41,7 +38,11 @@ function Counter() {
       {step}
       <br />
       <button onClick={() => setCount((c) => c - Number(step))}>-</button>
-      <input type="text" value={count} onChange={handleKeyUp} />
+      <input
+        type="text"
+        value={count}
+        onChange={(e) => setCount(Number(e.target.value))}
+      />
       <button onClick={() => setCount((c) => c + Number(step))}>+</button>
       <br />
       <p>
